@@ -127,7 +127,7 @@ Option 	 | 	 Description 	 | 	 Possible Values 	 | 	 Default
 `undo_backspace` 	 | 	  When enabled, espanso automatically "reverts" an expansion if the user presses the Backspace key afterwards. This is not available on some platform/configurations. 	 | 	 `true`/`false` 	 | 	 `true` 	 | 	 No 
 
 ### App-specific configurations
-The following options can be used in `$CONFIG/config/default.yml` _and_ in [app-specific configurations](../app-specific-configurations) files:
+The following options can be used in `$CONFIG/config/default.yml` _and_ in [app-specific configurations](../../configuration/app-specific-configurations) files:
 
 
 Option 	 | 	 Description 	 | 	 Possible Values 	 | 	 Default
