@@ -17,6 +17,8 @@ If you don't, these resources can be a good starting point:
 * https://regexone.com/
 * https://www.regular-expressions.info/
 
+Various websites such as https://regex101.com/ enable testing — select the Rust flavor, and remove quotes around the string and unnecessary escapes.
+
 :::
 
 ## Basics
@@ -116,7 +118,7 @@ so that you can use them in replacements and scripts.
 :::caution Named group syntax
 
 Although regular expressions are supported by most programming languages, their syntax can slightly vary 
- between implementations. Espanso uses the [regex](https://docs.rs/regex/1.5.4/regex/)
+ between implementations. Espanso uses the [Rust regex](https://docs.rs/regex/1.5.4/regex/)
 library, which requires you to specify named groups as follows:
 
 ```
@@ -186,11 +188,10 @@ but it's important to keep this in mind when defining matches.
 
 The current regex implementation is subject to a few limitations:
 
-* The maximum length of a "regex match" is set to 30 characters, including the captured named
+* Older versions of Espanso restrict the maximum length of a "regex match" set to 30 characters, including the captured named
 groups. For example, if your regex trigger is `:greet\\((?P<person>.*)\\)` and you type
 `:greet(Bob)`, you've consumed 11 out of 30 characters.
-This limitation has been placed to improve performance, but we are planning to make this
-configurable. Please open an issue on GitHub if this is limiting you :)
+This limitation was placed to improve performance, but from Espanso [v2.3.0](https://github.com/espanso/espanso/releases/tag/v2.3.0) onwards you can override it by adding a `max_regex_buffer_size:` item to a [configuration](../../configuration/basics/) file.
 
-* As explained in the previous sections, Espanso uses a Regex implementation that doesn't support
-all Regex features. For more information, please see the library documentation: https://docs.rs/regex/1.5.4/regex/
+* As explained in the previous sections, Espanso uses the Rust Regex implementation that doesn't support
+all Regex features. For more information, please see the [library documentation](https://docs.rs/regex/1.5.4/regex/).

@@ -21,10 +21,11 @@ For example, the following match will be expanded into `It's 09:30` if triggered
           format: "%H:%M"
 ```
 
-The most important aspect to consider is the `format` parameter,
-which specifies how the date will be rendered.
+The most important aspect to consider is the `format` parameter, which specifies how the date will be rendered.
 
 To see a list of all the possible <b>formatting options</b>, follow this link to refer to the <a href="https://docs.rs/chrono/latest/chrono/format/strftime/index.html">official chrono documentation</a>.
+
+From **Espanso v2.3.0 onwards**, the date extension supports timezones, with a `tz:` parameter, using [IANA timezone names](https://data.iana.org/time-zones/tzdb-2021a/zone1970.tab) (e.g., UTC, America/New_York, Europe/Paris), falling back to local time for invalid timezones.
 
 
 ### Future and past dates
