@@ -108,7 +108,7 @@ show_notifications: false
 Here are lists of all the available options.
 
 ### `default.yml` only
-The first list contains options which can _only_ be defined inside the `$CONFIG/config/default.yml` file:
+The first list contains global options which can _only_ be defined inside the `$CONFIG/config/default.yml` file:
 
 Option 	 | 	 Description 	 | 	 Possible Values 	 | 	 Default
 --- 	 | 	 --- 	 | 	 --- 	 | 	 ---
