@@ -107,7 +107,8 @@ show_notifications: false
 
 Here are lists of all the available options.
 
-### The first list contains options which can _only_ be defined inside the `$CONFIG/config/default.yml` file:
+### `default.yml` only
+The first list contains options which can _only_ be defined inside the `$CONFIG/config/default.yml` file:
 
 Option 	 | 	 Description 	 | 	 Possible Values 	 | 	 Default
 --- 	 | 	 --- 	 | 	 --- 	 | 	 ---
@@ -125,7 +126,8 @@ Option 	 | 	 Description 	 | 	 Possible Values 	 | 	 Default
 `word_separators` 	 | 	 Chars that when pressed mark the start and end of a word. Examples of this are . or , 	 | 	 A sequence of strings 	 | 	 `[" ", ",", ".", "?", "!", "\r", "\n", "\t", "'", "\"", "\x0c", "(", ")", "[", "]", "{", "}", "<", ">", ":", ";", "\xa0"]` 	 | 	 No
 `undo_backspace` 	 | 	  When enabled, espanso automatically "reverts" an expansion if the user presses the Backspace key afterwards. This is not available on some platform/configurations. 	 | 	 `true`/`false` 	 | 	 `true` 	 | 	 No 
 
-### The following options can be also used inside an [app-specific configuration](../app-specific-configurations):
+### App-specific configurations
+The following options can be used in `$CONFIG/config/default.yml` _and_ in [app-specific configurations](../app-specific-configurations) files:
 
 
 Option 	 | 	 Description 	 | 	 Possible Values 	 | 	 Default

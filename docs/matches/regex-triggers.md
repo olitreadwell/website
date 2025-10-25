@@ -191,7 +191,7 @@ The current regex implementation is subject to a few limitations:
 * Older versions of Espanso restrict the maximum length of a "regex match" set to 30 characters, including the captured named
 groups. For example, if your regex trigger is `:greet\\((?P<person>.*)\\)` and you type
 `:greet(Bob)`, you've consumed 11 out of 30 characters.
-This limitation was placed to improve performance, but from Espanso [v2.3.0](https://github.com/espanso/espanso/releases/tag/v2.3.0) onwards you can override it by adding a `max_regex_buffer_size:` item to a [configuration](../../configuration/basics/) file.
+This limitation was placed to improve performance, but from Espanso **[v2.3.0](https://github.com/espanso/espanso/releases/tag/v2.3.0) onwards** you can override it by adding a `max_regex_buffer_size:` item to a [configuration](../../configuration/basics/) file.
 
-* As explained in the previous sections, Espanso uses the Rust Regex implementation that doesn't support
+* As explained in the previous sections, Espanso uses the Rust Regex implementation, which doesn't support
 all Regex features. For more information, please see the [library documentation](https://docs.rs/regex/1.5.4/regex/).

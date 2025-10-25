@@ -10,7 +10,7 @@ To solve this problem, **Espanso makes it easy to split your matches across mult
 
 ## Splitting your matches
 
-Espanso automatically loads all YAML files placed in the `$CONFIG/match` directory. These files, known as _match sets_, can contain any number of matches and global variables. Older Espanso releases only recognise files suffixed `.yml` but [v2.3.0](https://github.com/espanso/espanso/releases/tag/v2.3.0) onwards enable `.yaml` files to be loaded too.
+Espanso automatically loads all YAML files placed in the `$CONFIG/match` directory. These files, known as _match sets_, can contain any number of matches and global variables. Older Espanso releases only recognise files suffixed `.yml` but **[v2.3.0](https://github.com/espanso/espanso/releases/tag/v2.3.0) onwards** enable `.yaml` files to be loaded too — avoid mixing them, however, to save confusion!
 
 To better understand these concepts, let's see an example:
 
