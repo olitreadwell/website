@@ -130,7 +130,7 @@ is to show how to create new Espanso packages!
 
 Once your package is ready, we can finally publish it on the Hub, awesome!
 
-:::.yml or .yaml?
+:::note `.yml` or `.yaml`?
 
 Whilst Espanso  **[v2.3.0](https://github.com/espanso/espanso/releases/tag/v2.3.0) onwards** enables `.yaml` suffixed files to be loaded, please stick to `.yml`  files in packages for now, to enable use with the previous versions.
 
