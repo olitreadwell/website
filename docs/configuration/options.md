@@ -105,12 +105,14 @@ show_notifications: false
 
 ## Options reference
 
-Here's a list of all the available options. If the value of the `App-specific` column is `Yes`, then the option can be used inside an [App-specific configuration](../app-specific-configurations).
-Otherwise, the option can only be defined inside the `$CONFIG/config/default.yml` file.
+Here are lists of all the available options.
 
-Option 	 | 	 Description 	 | 	 Possible Values 	 | 	 Default 	 | 	 App-Specific 
---- 	 | 	 --- 	 | 	 --- 	 | 	 --- 	 | 	 ---
-`auto_restart` 	 | 	 If true, instructs the daemon process to restart the worker (and refresh the configuration) after a configuration file change is detected on disk. 	 | 	 `true`/`false` 	 | 	 `true` 	 | 	 No
+### `default.yml` only
+The first list contains global options which can _only_ be defined inside the `$CONFIG/config/default.yml` file:
+
+Option 	 | 	 Description 	 | 	 Possible Values 	 | 	 Default
+--- 	 | 	 --- 	 | 	 --- 	 | 	 ---
+`auto_restart` 	 | 	 If true, instructs the daemon process to restart the worker (and refresh the configuration) after a configuration file change is detected on disk. 	 | 	 `true`/`false` 	 | 	 `true`	 | 	 No
 `backspace_limit` 	 | 	 How many backspace espanso tracks to correct misspelled keywordsMaximum number of backspace presses espanso keeps track of. For example, this is needed to correctly expand even if typos are typed. 	 | 	 `number` 	 | 	5	 | 	 No
 `keyboard_layout` 	 | 	 On Wayland, overrides the auto-detected keyboard configuration (RMLVO) which is used both for the detection and injection process. 	 | 	 An object with fields: `rules`, `model`, `layout`, `variant` and `options` 	 | 	 `{ layout: us }` 	 | 	 No
 `preserve_clipboard` 	 | 	 If true, Espanso will attempt to preserve the previous clipboard content after an expansion has taken place. 	 | 	 `true`/`false` 	 | 	 `true` 	 | 	 No
@@ -123,7 +125,13 @@ Option 	 | 	 Description 	 | 	 Possible Values 	 | 	 Default 	 | 	 App-Specific
 `win32_keyboard_layout_`<br></br>`cache_interval` 	 | 	 The maximum interval (in milliseconds) for which a keyboard layout can be cached. If switching often between different layouts, you  could lower this amount to avoid the "lost detection" effect described in this [Issue]( https://github.com/espanso/espanso/issues/745). 	 | 	 `number` of milliseconds 	 | 	2000	 | 	 No
 `word_separators` 	 | 	 Chars that when pressed mark the start and end of a word. Examples of this are . or , 	 | 	 A sequence of strings 	 | 	 `[" ", ",", ".", "?", "!", "\r", "\n", "\t", "'", "\"", "\x0c", "(", ")", "[", "]", "{", "}", "<", ">", ":", ";", "\xa0"]` 	 | 	 No
 `undo_backspace` 	 | 	  When enabled, espanso automatically "reverts" an expansion if the user presses the Backspace key afterwards. This is not available on some platform/configurations. 	 | 	 `true`/`false` 	 | 	 `true` 	 | 	 No 
-||||
+
+### App-specific configurations
+The following options can be used in `$CONFIG/config/default.yml` _and_ in app-specific configuration files:
+
+
+Option 	 | 	 Description 	 | 	 Possible Values 	 | 	 Default
+--- 	 | 	 --- 	 | 	 --- 	 | 	 ---
 `apply_patch` 	 | 	 If false, avoid applying the built-in [patches](#patches) to the current config. 	 | 	 `true`/`false` 	 | 	 `true` 	 | 	 Yes
 `backend` 	 | 	  The mechanism used to perform the injection. Espanso can either inject text by simulating keypresses (`Inject` backend) or by using the clipboard (`Clipboard` backend). Both of them have pros and cons, so the `Auto` backend is used by default to automatically choose the most appropriate one based on the situation. If for whatever reason the `Auto` backend is not appropriate, you can change this option to override it. 	 | 	 `clipboard`, `inject` or `auto` 	 | 	 `auto` 	 | 	 Yes
 `clipboard_threshold` 	 | 	 Number of chars after which a match is injected with the clipboard backend instead of the default one. This is done for efficiency reasons, as injecting a long match through separate events becomes slow for long strings. This is only relevant if the backend is set to `Auto`. 	 | 	 `number` 	 | 	100	 | 	 Yes
@@ -133,8 +141,9 @@ Option 	 | 	 Description 	 | 	 Possible Values 	 | 	 Default 	 | 	 App-Specific
 `evdev_modifier_delay` 	 | 	 Extra delay to apply when injecting modifiers under the EVDEV backend (Wayland). This is useful on Wayland if espanso is injecting seemingly random cased letters, for example "Hi theRE1" instead of "Hi there!". Increase if necessary, decrease to speed up the injection. 	 | 	 `number` of milliseconds 	 | 	10	 | 	 Yes (but on Wayland there is currently no support for App-specific configs)
 `inject_delay` 	 | 	 Number of milliseconds between text injection events. Increase if the target application is missing some characters. 	 | 	 `number` of milliseconds 	 | 	 Between 0 and 1, depending on the platform and application. 	 | 	 Yes
 `key_delay` 	 | 	 Number of milliseconds between key injection events. Increase if the target application is missing some key events. For example, increasing might help if the trigger is not deleted completely. 	 | 	 `number` of milliseconds 	 | 	 Between 0 and 1, depending on platform and application 	 | 	 Yes
-`max_form_height` | Constrains the height of [forms](../../matches/forms). | Number of pixels  | 500 | Yes
-`max_form_width`  | Constrains the width of [forms](../../matches/forms).  | Number of pixels | 700 | Yes
+`max_form_height` | Constrains the height of [forms](../../matches/forms). | `number` of pixels  | 500 | Yes
+`max_form_width`  | Constrains the width of [forms](../../matches/forms).  | `number` of pixels | 700 | Yes
+`max_regex_buffer_size` | **v2.3.0 onwards ONLY**. Length of regex matches | `number` | 30 | Yes
 `paste_shortcut_event_`<br></br>`delay` 	 | 	 Number of milliseconds between keystrokes when simulating the Paste shortcut. For example: CTRL + (wait 5ms) + V + (wait 5ms) + release V + (wait 5ms) + release CTRL. This is needed as sometimes (for example on macOS), without a delay some keystrokes were not registered correctly. 	 | 	 `number` of milliseconds 	 | 	10	 | 	 Yes
 `paste_shortcut` 	 | 	 Customize the keyboard shortcut used to paste an expansion. This should follow this format: CTRL+SHIFT+V. 	 | 	 Keys separated by the `+` plus sign. The available keys are defined [here](https://github.com/espanso/espanso/blob/283b85818b6cc27f1d545337b99effa847b380eb/espanso-inject/src/keys.rs#L237-L323) 	 | 	 Usually `CTRL+V`, but many built-in [patches](#patches) change this behavior 	 | 	 Yes
 `post_form_delay` | Delay (in ms) returning text after closing a form, to allow the target application regain focus. | `number` of milliseconds | 200 | Yes

@@ -21,11 +21,9 @@ For example, the following match will be expanded into `It's 09:30` if triggered
           format: "%H:%M"
 ```
 
-The most important aspect to consider is the `format` parameter,
-which specifies how the date will be rendered.
+The most important aspect to consider is the `format` parameter, which specifies how the date will be rendered.
 
 To see a list of all the possible <b>formatting options</b>, follow this link to refer to the <a href="https://docs.rs/chrono/latest/chrono/format/strftime/index.html">official chrono documentation</a>.
-
 
 ### Future and past dates
 
@@ -67,16 +65,11 @@ If you need **past dates**, you can specify a _negative offset_ as well. Such as
           offset: -86400
 ```
 
-### Advanced: Localized dates
+### Localized dates
 
-:::info
+#### Locale
 
-Localized dates have been introduced in version v2.1.4-beta, so make sure to have an up-to-date release.
-
-:::
-
-Espanso automatically localizes dates based on your system's country and language,
-but advanced users might want to force a particular locale.
+Espanso automatically localizes dates based on your system's country and language, but advanced users might want to force a particular locale.
 
 For this reason, the Date extension supports the `locale` option to override your system preferences.
 For example, the following snippet always expand to the current date in US format:
@@ -95,6 +88,10 @@ matches:
 
 The `locale` parameter must be specified in the BCP47 format.
 You can find a list of the available locales [here](https://gist.github.com/typpo/b2b828a35e683b9bf8db91b5404f1bd1).
+
+#### Timezones
+
+From **Espanso v2.3.0 onwards**, the date extension also supports timezones, with a `tz:` parameter, using [IANA timezone names](https://data.iana.org/time-zones/tzdb-2021a/zone1970.tab) (e.g., UTC, America/New_York, Europe/Paris), falling back to local time for invalid timezones.
 
 ## Choice Extension
 

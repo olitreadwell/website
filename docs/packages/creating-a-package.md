@@ -82,7 +82,8 @@ Edit the `_manifest.yml` file to customize the package metadata:
   * `description` should contain a short description of your package.
   * `version` contains the version of your package. We suggest to keep it at `0.1.0` for new packages, and this number *must* match that in the package path above.
   * `author` contains the author name.
-  * `tags` contains a list of keywords
+  * `tags` contains a list of keywords.
+  * `homepage` your homepage or GitHub repo, for example.
 
 There are also other possible fields, please visit the [Package Specification](../package-specification)
 if you are interested.
@@ -96,6 +97,7 @@ description: A simple package to show how to create your own one!
 version: 0.1.0
 author: Federico Terzi
 tags: ["sample". "words"]
+homepage: "https://github.com/federico-terzi/espanso-hub"
 ```
 
 ### Customizing the snippets
@@ -128,9 +130,16 @@ is to show how to create new Espanso packages!
 
 Once your package is ready, we can finally publish it on the Hub, awesome!
 
+:::note `.yml` or `.yaml`?
+
+Whilst Espanso  **[v2.3.0](https://github.com/espanso/espanso/releases/tag/v2.3.0) onwards** enables `.yaml` suffixed files to be loaded, please stick to `.yml`  files in packages for now, to enable use with the previous versions.
+
+:::
+
 After committing your changes and pushing it to your forked version of the Hub, you'll need to **open a pull request** on the [espanso/hub repository](https://github.com/espanso/hub).
 
-At that point, the Espanso team will review it and, once verified, your package will be published!
+
+At that point, the Espanso team will review it and, once verified, your package will be published! Please be prepared to engage with the reviewers, who may suggest improvements, or changes to correct errors.
 
 ## Publish on a GIT repository (private or public) 
 
