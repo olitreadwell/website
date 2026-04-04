@@ -488,10 +488,10 @@ matches:
 An alternative is to use the YAML Anchor/Alias facility. This requires a named section which can contain several anchors but, unlike `global_vars:`, Espanso requires it *precede* the `matches:` section of the *same file*. The section name can be anything, so use something like `anchors:`. The *anchor* names themselves have a `&` prefix but when used in the trigger their *alias* exchanges this for a `*`. Otherwise the layout is very similar to that above, but a little more compact:
 ```yml
 anchors:      
-  - &script1 |
-      fruits = ["apple", "banana", "cherry"]
-      for x in fruits:
-        print(x) 
+  script1: &script1 |
+    fruits = ["apple", "banana", "cherry"]
+    for x in fruits:
+      print(x) 
 
 matches:
   - trigger: :testt
