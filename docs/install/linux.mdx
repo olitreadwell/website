@@ -157,16 +157,12 @@ sudo mv target/release/espanso /usr/local/bin/espanso
 > Wayland support is currently experimental, therefore some features might be missing or not working well yet. 
 > Known limitations include:
 >
-> * If you are using a non-us keyboard layout, you'll need to explicitly specify it in the settings (more on this below).
-> * There is currently no support for App-specific configurations, which means we can't use patches
-> (which are often necessary to support some terminals).
-> * If you are using Gnome, Espanso causes a small "flicker" when using the clipboard backend. This does not happen
-> on Sway.
-> * If you connect a new keyboard, you will need to manually restart Espanso with `espanso restart`, otherwise
-> Espanso won't detect it.
+> * Non-US keyboard layouts must be explicitly specified in the settings (more on this below).
+> * App-specific configurations _might_ work in KDE-Wayland distros if you can install `kdotool`.
+> * In Gnome, Espanso causes a small "flicker" when using the clipboard backend. This does not happen on Sway.
+> * On connecting a new keyboard, you will have to manually restart Espanso with `espanso restart`, for Espanso to detect it.
 >
-> If you encounter a bug, please [open an issue on GitHub](https://github.com/espanso/espanso/issues),
-> any help is greatly appreciated! :)
+> If you encounter a bug, please [open an issue on GitHub](https://github.com/espanso/espanso/issues), any help is greatly appreciated! :)
 
 
 ### Installing with DEB package (Ubuntu/Debian) {#deb-wayland}

@@ -495,7 +495,7 @@ and store all your images there. Let's say I stored the `cat.png` image. We can 
 
 ## Nested Matches
 
-*Nested matches* makes it possible to include the output of a match inside another one.
+*Nested matches* makes it possible to include the output of a match inside one or more others.
 
 
 ```yaml
